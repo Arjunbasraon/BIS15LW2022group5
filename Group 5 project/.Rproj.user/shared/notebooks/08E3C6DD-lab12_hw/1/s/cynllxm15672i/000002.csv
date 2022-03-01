@@ -1,0 +1,7 @@
+"0","library(tidyverse)"
+"0","library(janitor)"
+"0","library(here)"
+"0","library(ggmap)"
+"0","library(albersusa)"
+"2","Error in library(albersusa) : there is no package called ‘albersusa’
+"

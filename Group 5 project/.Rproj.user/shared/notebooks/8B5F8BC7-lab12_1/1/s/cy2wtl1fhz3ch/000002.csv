@@ -1,0 +1,353 @@
+"0","spider_list <- lapply(files, read_csv)"
+"1","[1mRows: [22m[34m12[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m8[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m37[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m7[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m3[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m9[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m10[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m20[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m5[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m16[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m2[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m21[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m8[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m2[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m7[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m8[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m8[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m21[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m2[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m11[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m2[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m6[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m19[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m18[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"
+"1","[1mRows: [22m[34m1[39m [1mColumns: [22m[34m9[39m
+"
+"1","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (8): Family, Genus, Country, State, County, Locality, Date, Collector
+[32mdbl[39m (1): Accession
+"
+"1","
+[36mi[39m Use [38;5;235m[48;5;253m[38;5;235m[48;5;253m`spec()`[48;5;253m[38;5;235m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;235m[48;5;253m[38;5;235m[48;5;253m`show_col_types = FALSE`[48;5;253m[38;5;235m[49m[39m to quiet this message.
+"

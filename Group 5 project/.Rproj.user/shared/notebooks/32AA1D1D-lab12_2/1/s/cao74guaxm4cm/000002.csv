@@ -1,0 +1,23 @@
+"0","install.packages(""albersusa"")"
+"2","WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+"
+"2","Installing package into ‘C:/Users/Magicfullrene laptop/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+"
+"1","Warning in "
+"1",""
+"1","install.packages"
+"1",""
+"1"," :
+  "
+"1",""
+"1","package ‘albersusa’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages"
+"1",""
+"1","
+"

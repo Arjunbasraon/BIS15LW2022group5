@@ -1,0 +1,19 @@
+"0","library(tidyverse)"
+"0","library(here)"
+"2","here() starts at C:/Users/Magicfullrene laptop/Desktop/bis 15/BIS15W2022_Arjunbasraon
+"
+"0","library(janitor)"
+"2","
+Attaching package: ‘janitor’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+"
+"0","library(ggmap)"
+"2","Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
+"
+"2","Please cite ggmap if you use it! See citation(""ggmap"") for details.
+"
