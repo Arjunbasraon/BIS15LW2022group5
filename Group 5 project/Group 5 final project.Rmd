@@ -16,9 +16,40 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r}
-getwd()
+library(tidyverse)
+library(janitor)
+```
+```{r,warning=F}
+train <- read_csv('../data/train.csv')
+test <- read_csv('../data/test.csv')
 ```
 
 ```{r}
-setwd()
+# cleaning bad column nanes
+train <- clean_names(train)
+train
 ```
+
+
+```{r}
+columns_to_drop <- c('patient_id','patient_first_name','family_name','fathers_name','test_1','test_2','test_3','test_4','test_5','symptom_1','symptom_2','symptom_3','symptom_4','symptom_5')
+```
+```{r}
+train_1 <- train[!colnames(train) %in% columns_to_drop]
+```
+```{r}
+table(train['disorder_subclass'])
+```
+
+```{r}
+table(train['genetic_disorder'])
+```
+```{r}
+train_1[train_1=="Not applicable"] <- NA
+train_1[train_1=="-"] <- NA
+```
+
+```{r}
+train_1
+```
+
