@@ -18,6 +18,9 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r}
 library(tidyverse)
 library(janitor)
+library(here)
+library(naniar)
+library(ggthemes)
 ```
 ```{r,warning=F}
 train <- read_csv('../data/train.csv')
