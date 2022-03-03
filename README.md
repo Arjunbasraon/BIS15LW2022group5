@@ -22,9 +22,9 @@ Welcome!
 
 Put your code on these lines to avoid **merge conflicts**
 
-* Ricardo: 1-300
+* Brandon: 1-300
 
-* Brandon: 301-600 
+* Ricardo: 301-600 
 
 * Arjun: 601-900 
 
