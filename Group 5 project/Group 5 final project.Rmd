@@ -21,6 +21,7 @@ library(janitor)
 library(here)
 library(naniar)
 library(ggthemes)
+library(RColorBrewer)
 ```
 ```{r,warning=F}
 train <- read_csv('../data/train.csv')
@@ -51,8 +52,110 @@ table(train['genetic_disorder'])
 train_1[train_1=="Not applicable"] <- NA
 train_1[train_1=="-"] <- NA
 ```
+```{r}
+cols <- brewer.pal(3, "Pastel2")
+```
+
+
+The dataset seems to contain an equal amount for each gender. 
 
 ```{r}
-train_1
+train_1 %>% 
+  filter(!is.na(gender)) %>% 
+  ggplot(aes(x=gender))+
+  geom_bar(aes(fill=gender),col='black')+
+  labs(title="Count of Gender",
+       x="Gender",
+       y="Count")+
+  theme_light()+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))+
+  scale_fill_brewer(palette="Set2")
 ```
+```{r}
+gender_disorder <- train_1 %>% 
+  filter(!is.na(gender)& !is.na(genetic_disorder)) %>% 
+  group_by(gender) %>% 
+  count(genetic_disorder)
+gender_disorder
+```
+```{r}
+cols <- brewer.pal(3, "Dark2")
+gender_disorder %>% 
+  ggplot(aes(x=gender,y=n))+
+  geom_col(aes(fill=genetic_disorder),position = 'dodge',col='black')+
+  scale_fill_manual(values = cols)+
+  theme_classic()+
+  labs(title="Count of Genetic Disorders By Gender",
+       x="Gender",
+       y="Count")+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))
+  
+```
+
+```{r}
+gender_subclass <- train_1 %>% 
+  filter(!is.na(gender)&!is.na(disorder_subclass)) %>% 
+  group_by(gender) %>% 
+  count(disorder_subclass)
+gender_subclass
+```
+```{r}
+gender_subclass %>% 
+  ggplot(aes(x=gender,y=disorder_subclass,fill=n),col='black')+
+  geom_tile()+
+  scale_fill_gradient(low="white", high="red")+
+  theme_bw()+
+  labs(title="Heatmap of Genetic Disorders Subclass By Gender",
+       x="Gender",
+       y="Disorder Subclass")+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))
+```
+```{r}
+gender_subclass <- gender_subclass %>% 
+  group_by(disorder_subclass) %>% 
+  mutate(max=max(n),min=min(n)) %>% 
+  mutate(max_scaled=n/max,min_scaled=n/min)
+
+gender_subclass
+```
+```{r}
+gender_subclass %>% 
+  ggplot(aes(x=gender,y=disorder_subclass,fill=max_scaled))+
+  geom_tile()+
+  scale_fill_gradient(low="white", high="red")+
+  theme_bw()+
+  labs(title="Heatmap of Genetic Disorders Subclass By Gender",
+       x="Gender",
+       y="Disorder Subclass")+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))
+```
+
+```{r}
+train_1 %>% 
+  group_by(genes_in_mothers_side,inherited_from_father,maternal_gene,paternal_gene) %>% 
+  count(disorder_subclass)
+```
+```{r}
+inheritance_traits <- train_1 %>% 
+  filter(!is.na(genetic_disorder) & !is.na(disorder_subclass)) %>% 
+  group_by(genetic_disorder) %>% 
+  distinct(disorder_subclass) %>% 
+  arrange(genetic_disorder)
+knitr::kable(inheritance_traits)
+```
+
+
+
+
+
+
+
 
