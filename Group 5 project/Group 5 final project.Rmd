@@ -5,391 +5,670 @@ date: "3/1/2022"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r}
-library(tidyverse)
-library(janitor)
-library(here)
-library(naniar)
-library(ggthemes)
-library(RColorBrewer)
-```
-```{r,warning=F}
-train <- read_csv('../data/train.csv')
-test <- read_csv('../data/test.csv')
+getwd()
 ```
 
 ```{r}
-# cleaning bad column nanes
-train <- clean_names(train)
-train
+ourdata <- readr::read_csv("train.csv")
 ```
+```{r}
+ourdata
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ```{r}
-columns_to_drop <- c('patient_id','patient_first_name','family_name','fathers_name','test_1','test_2','test_3','test_4','test_5','symptom_1','symptom_2','symptom_3','symptom_4','symptom_5')
-```
-```{r}
-train_1 <- train[!colnames(train) %in% columns_to_drop]
-```
-```{r}
-table(train['disorder_subclass'])
+cleandata <- clean_names(ourdata) 
+cleandata
 ```
 
 ```{r}
-table(train['genetic_disorder'])
+disorders_unique <- cleandata %>% 
+  count(disorder_subclass) %>%
+  arrange(n)
+disorders_unique
 ```
 ```{r}
-train_1[train_1=="Not applicable"] <- NA
-train_1[train_1=="-"] <- NA
-```
-```{r}
-cols <- brewer.pal(3, "Pastel2")
-```
-
-
-The dataset seems to contain an equal amount for each gender. 
-
-```{r}
-train_1 %>% 
-  filter(!is.na(gender)) %>% 
-  ggplot(aes(x=gender))+
-  geom_bar(aes(fill=gender),col='black')+
-  labs(title="Count of Gender",
-       x="Gender",
-       y="Count")+
-  theme_light()+
-  theme(axis.title = element_text(size=15),
-        axis.text = element_text(size=10),
-        plot.title = element_text(hjust = .5, size = 15))+
-  scale_fill_brewer(palette="Set2")
-```
-```{r}
-gender_disorder <- train_1 %>% 
-  filter(!is.na(gender)& !is.na(genetic_disorder)) %>% 
-  group_by(gender) %>% 
-  count(genetic_disorder)
-gender_disorder
-```
-```{r}
-cols <- brewer.pal(3, "Dark2")
-gender_disorder %>% 
-  ggplot(aes(x=gender,y=n))+
-  geom_col(aes(fill=genetic_disorder),position = 'dodge',col='black')+
-  scale_fill_manual(values = cols)+
-  theme_classic()+
-  labs(title="Count of Genetic Disorders By Gender",
-       x="Gender",
-       y="Count")+
-  theme(axis.title = element_text(size=15),
-        axis.text = element_text(size=10),
-        plot.title = element_text(hjust = .5, size = 15))
-  
+disorders_unique %>% 
+  ggplot(aes(x = disorder_subclass, y = n )) +
+  geom_col(color = "grey", alpha = .8, na.rm = TRUE) +
+  labs(title = "Occurance of Disorders",
+       x = "Disorder",
+       y = "Number of patients") +
+  theme(plot.title = element_text(size = rel(1.5), hjust = 0.5))
 ```
 
 ```{r}
-gender_subclass <- train_1 %>% 
-  filter(!is.na(gender)&!is.na(disorder_subclass)) %>% 
-  group_by(gender) %>% 
-  count(disorder_subclass)
-gender_subclass
-```
-```{r}
-gender_subclass %>% 
-  ggplot(aes(x=gender,y=disorder_subclass,fill=n),col='black')+
-  geom_tile()+
-  scale_fill_gradient(low="white", high="red")+
-  theme_bw()+
-  labs(title="Heatmap of Genetic Disorders Subclass By Gender",
-       x="Gender",
-       y="Disorder Subclass")+
-  theme(axis.title = element_text(size=15),
-        axis.text = element_text(size=10),
-        plot.title = element_text(hjust = .5, size = 15))
-```
-```{r}
-gender_subclass <- gender_subclass %>% 
-  group_by(disorder_subclass) %>% 
-  mutate(max=max(n),min=min(n)) %>% 
-  mutate(max_scaled=n/max,min_scaled=n/min)
-
-gender_subclass
-```
-```{r}
-gender_subclass %>% 
-  ggplot(aes(x=gender,y=disorder_subclass,fill=max_scaled))+
-  geom_tile()+
-  scale_fill_gradient(low="white", high="red")+
-  theme_bw()+
-  labs(title="Heatmap of Genetic Disorders Subclass By Gender",
-       x="Gender",
-       y="Disorder Subclass")+
-  theme(axis.title = element_text(size=15),
-        axis.text = element_text(size=10),
-        plot.title = element_text(hjust = .5, size = 15))
+disorders_unique %>% 
+ggplot(aes(
+  label = disorder_subclass, 
+  size = n,
+  color = disorder_subclass
+  )) +
+  geom_text_wordcloud() +
+  scale_size_area(max_size = 15) +
+  theme_minimal()
 ```
 
 ```{r}
-train_1 %>% 
-  group_by(genes_in_mothers_side,inherited_from_father,maternal_gene,paternal_gene) %>% 
-  count(disorder_subclass)
-```
-```{r}
-inheritance_traits <- train_1 %>% 
-  filter(!is.na(genetic_disorder) & !is.na(disorder_subclass)) %>% 
-  group_by(genetic_disorder) %>% 
-  distinct(disorder_subclass) %>% 
-  arrange(genetic_disorder)
-knitr::kable(inheritance_traits)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```{r}
-library(albersusa)
-library(ggmap)
+lebers_neuropathy <- cleandata %>%
+  filter(disorder_subclass == "Leber's hereditary optic neuropathy") %>%
+select(genes_in_mothers_side, inherited_from_father, maternal_gene, paternal_gene)
+lebers_neuropathy
 ```
 
 ```{r}
-#Cleaning Location Column
-location_data_train_1 <- train_1 %>% 
-  mutate(New = str_extract(location_of_institute, "\\([^\\)]+"),
-               New = str_remove(New, "\\("),
-               location_of_institute = str_extract(location_of_institute,"^[^\\(]+"),
-               location_of_institute = New) %>%
-  separate(location_of_institute, into = c("loc_lat", "loc_long"), sep = ",")
-
+cleandata %>%
+  group_by(disorder_subclass) %>%
+  summarise(average_bloodcell_count = mean(blood_cell_count_mc_l)) %>%
+  arrange(average_bloodcell_count)
 ```
 
 ```{r}
-#Only work around I found to work to turn lat/long character -> numeric. Piping into above chunk wouldn't work
-location_data_train_1$loc_lat = as.numeric(as.character(location_data_train_1$loc_lat))
-location_data_train_1$loc_long = as.numeric(as.character(location_data_train_1$loc_long))
-
+cleandata %>%
+   ggplot(aes(x = disorder_subclass, y = blood_cell_count_mc_l)) +
+  geom_boxplot()
 ```
 
 ```{r}
-#Finding bbox
-location_data_train_1 %>%
-  select(loc_lat, loc_long) %>%
-  summary()
-#making bbox
-latitude <- c(42.27, 42.37)
-longitude <- c(-71.17, -71.06)
-bbox2 <- make_bbox(longitude, latitude, f = 0.05)
+cleandata %>%
+  group_by(disorder_subclass) %>%
+  filter(low_bloodcell_count = blood_cell_count_mc_l < 4) 
 ```
 
 ```{r}
-#making map
-map2 <- get_map(bbox2, maptype = "terrain-lines", source = "stamen")
-ggmap(map2) +
-  geom_point(data = location_data_train_1,
-             aes(loc_long, loc_lat),
-             size=1.3)
+cleandata %>%
+  group_by(disorder_subclass) %>%
+  filter(!is.na(white_blood_cell_count_thousand_per_microliter)) %>%
+  summarise(average_wbc_count = mean(white_blood_cell_count_thousand_per_microliter)) %>%
+  arrange(average_wbc_count)
 ```
 
+```{r}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 
 
