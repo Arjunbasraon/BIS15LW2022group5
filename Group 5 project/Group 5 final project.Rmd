@@ -231,8 +231,33 @@ train_1 %>%
 ```
 
 `
+```{r}
+train_1
+```
 
+```{r}
+train_1
+```
 
+```{r}
+ numerical_vals <- train_1 %>% 
+  rename(blood_cell_count=blood_cell_count_mc_l,white_cell_count=white_blood_cell_count_thousand_per_microliter) %>% 
+  select(patient_age,blood_cell_count,mothers_age,fathers_age,white_cell_count,no_of_previous_abortion)%>% 
+  na.omit()
+```
+
+```{r}
+melt_cor <- melt(cor(numerical_vals))
+melt_cor %>% 
+  ggplot(aes(x=Var1,y=Var2,fill=value))+
+  geom_tile()+
+  scale_fill_gradient(low="white", high="red")+
+  theme(axis.text.x = element_text(angle = 20, hjust = 1, vjust = 1)) +
+  labs(title="Corrlation heatmap of numerical variables")+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))
+```
 
 
 
