@@ -22,6 +22,7 @@ library(here)
 library(naniar)
 library(ggthemes)
 library(RColorBrewer)
+library(reshape2)
 ```
 ```{r,warning=F}
 train <- read_csv('../data/train.csv')
@@ -151,14 +152,85 @@ inheritance_traits <- train_1 %>%
   arrange(genetic_disorder)
 knitr::kable(inheritance_traits)
 ```
+```{r}
+train_1 %>% 
+ggplot(aes(x=disorder_subclass, fill=h_o_radiation_exposure_x_ray)) + geom_bar(position="dodge") +
+theme(axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1)) +
+labs(title = "Disorder Frequency by Radiation Exposure", 
+     x = "Disorder Type",
+     y = "Number of Observation")
+```
+
+```{r}
+train_1 %>% 
+  filter(!is.na(patient_age)&!is.na(disorder_subclass)) %>% 
+  ggplot(aes(x=disorder_subclass,y=patient_age,fill=disorder_subclass))+
+  geom_boxplot()+
+  geom_violin(alpha=.1)+
+  coord_flip()
+```
 
 
+```{r}
+train_1 %>% 
+  filter(!is.na(disorder_subclass)) %>% 
+  group_by(disorder_subclass) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=disorder_subclass,y=n))+
+  geom_col(aes(fill=disorder_subclass),col='black')+
+  coord_flip()+  
+  theme_classic()+
+  labs(title="Count of Genetic Disorders",
+       x="Disorder Sublcass",
+       y="Count")+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))
+```
+
+```{r}
+train_1 %>% 
+  filter(!is.na(genetic_disorder)) %>% 
+  group_by(genetic_disorder) %>% 
+  summarise(n=n()) %>% 
+  ggplot(aes(x=genetic_disorder,y=n))+
+  geom_col(aes(fill=genetic_disorder))+
+  theme_classic()+
+  labs(title="Count of Genetic Disorders",
+       x="Disorder",
+       y="Count")+
+  theme(axis.title = element_text(size=15),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))+
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1)) 
+```
 
 
+```{r}
+numerical_vals <- train_1 %>% 
+  select(patient_age,blood_cell_count_mc_l,mothers_age,fathers_age,white_blood_cell_count_thousand_per_microliter,no_of_previous_abortion) %>% na.omit()
+```
+
+```{r}
+train_1 %>% 
+  filter(!is.na(mothers_age)&!is.na(disorder_subclass)) %>% 
+  ggplot(aes(x=disorder_subclass,y=mothers_age,fill=disorder_subclass))+
+  geom_boxplot()+
+  geom_violin(alpha=.1)+
+  coord_flip()
+```
 
 
+```{r}
+train_1 %>% 
+  filter(!is.na(fathers_age)&!is.na(disorder_subclass)) %>% 
+  ggplot(aes(x=disorder_subclass,y=fathers_age,fill=disorder_subclass))+
+  geom_boxplot()+
+  geom_violin(alpha=.1)+
+  coord_flip()
+```
 
-
+`
 
 
 
