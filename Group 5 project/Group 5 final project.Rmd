@@ -23,6 +23,9 @@ library(naniar)
 library(ggthemes)
 library(RColorBrewer)
 library(reshape2)
+library(ggVennDiagram)
+library(ggwordcloud)
+library(ggthemes)
 ```
 ```{r,warning=F}
 train <- read_csv('../data/train.csv')
@@ -467,6 +470,212 @@ location_data_train_1 %>%
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+disorders_unique <- train%>% 
+  count(disorder_subclass) %>%
+  arrange(n)
+disorders_unique
+```
+```{r}
+disorders_unique %>% 
+  ggplot(aes(x = disorder_subclass, y = n , fill = disorder_subclass)) +
+  geom_col(color = "black", alpha = 1, na.rm = TRUE) +
+  labs(title = "Occurance of Disorders",
+       x = "Disorder",
+       y = "Number of patients") +
+  theme(plot.title = element_text(size = rel(2), hjust = 0.5)) +
+  coord_flip()
+```
+
+```{r}
+disorders_unique %>% 
+ggplot(aes(
+  label = disorder_subclass, 
+  size = n,
+  color = disorder_subclass
+  )) +
+  geom_text_wordcloud() +
+  scale_size_area(max_size = 15) +
+  theme_minimal()
+```
+
+```{r}
+train %>%
+  group_by(disorder_subclass) %>%
+  summarise(average_bloodcell_count = mean(blood_cell_count_mc_l)) %>%
+  arrange(average_bloodcell_count)
+```
+
+```{r}
+train %>%
+   ggplot(aes(x = disorder_subclass, y = blood_cell_count_mc_l, fill= disorder_subclass)) +
+  geom_boxplot() +
+  labs(title = "blood cell count with disorders",
+       x = "Disorder",
+       y = "bloodcell count 1000 per microliter")+
+  theme(axis.text.x = element_text(angle = 30, hjust=1))
+```
+
+
+
+```{r}
+train %>%
+  group_by(disorder_subclass) %>%
+  filter(!is.na(white_blood_cell_count_thousand_per_microliter)) %>%
+  summarise(average_wbc_count = mean(white_blood_cell_count_thousand_per_microliter)) %>%
+  arrange(average_wbc_count)
+```
+
+```{r}
+train %>%
+   ggplot(aes(x = disorder_subclass, y = white_blood_cell_count_thousand_per_microliter, fill = disorder_subclass)) +
+  geom_boxplot(color = "black", alpha = 1, na.rm = TRUE) +
+  theme(plot.title = element_text(size = rel(1.5), hjust = 0.5))+
+  theme(axis.text.x = element_text(angle = 30, hjust=1)) +
+   labs(title = "WBC count among disorders",
+       x = "Disorder",
+       y = "WBC count 1000 per microliter")
+```
+
+```{r}
+train %>%
+  group_by(disorder_subclass) %>%
+ na.omit()%>%
+ summarise(mean(symptom_1), mean(symptom_2), mean(symptom_3), mean(symptom_4), mean(symptom_5))
+```
+```{r}
+getwd()
+```
 
 
 
