@@ -11,6 +11,21 @@ getwd()
 ```
 
 ```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+library(ggmap)
+library(RColorBrewer)
+library(paletteer)
+library(janitor)
+library(here)
+library(dplyr)
+library(ggVennDiagram)
+library(ggwordcloud)
+library(ggthemes)
+```
+
+```{r}
 ourdata <- readr::read_csv("train.csv")
 ```
 ```{r}
@@ -612,12 +627,13 @@ disorders_unique
 ```
 ```{r}
 disorders_unique %>% 
-  ggplot(aes(x = disorder_subclass, y = n )) +
-  geom_col(color = "grey", alpha = .8, na.rm = TRUE) +
+  ggplot(aes(x = disorder_subclass, y = n , fill = disorder_subclass)) +
+  geom_col(color = "black", alpha = 1, na.rm = TRUE) +
   labs(title = "Occurance of Disorders",
        x = "Disorder",
        y = "Number of patients") +
-  theme(plot.title = element_text(size = rel(1.5), hjust = 0.5))
+  theme(plot.title = element_text(size = rel(2), hjust = 0.5)) +
+  coord_flip()
 ```
 
 ```{r}
@@ -648,15 +664,15 @@ cleandata %>%
 
 ```{r}
 cleandata %>%
-   ggplot(aes(x = disorder_subclass, y = blood_cell_count_mc_l)) +
-  geom_boxplot()
+   ggplot(aes(x = disorder_subclass, y = blood_cell_count_mc_l, fill= disorder_subclass)) +
+  geom_boxplot() +
+  labs(title = "blood cell count with disorders",
+       x = "Disorder",
+       y = "bloodcell count 1000 per microliter")+
+  theme(axis.text.x = element_text(angle = 30, hjust=1))
 ```
 
-```{r}
-cleandata %>%
-  group_by(disorder_subclass) %>%
-  filter(low_bloodcell_count = blood_cell_count_mc_l < 4) 
-```
+
 
 ```{r}
 cleandata %>%
@@ -667,8 +683,318 @@ cleandata %>%
 ```
 
 ```{r}
-
+cleandata %>%
+   ggplot(aes(x = disorder_subclass, y = white_blood_cell_count_thousand_per_microliter, fill = disorder_subclass)) +
+  geom_boxplot(color = "black", alpha = 1, na.rm = TRUE) +
+  theme(plot.title = element_text(size = rel(1.5), hjust = 0.5))+
+  theme(axis.text.x = element_text(angle = 30, hjust=1)) +
+   labs(title = "WBC count among disorders",
+       x = "Disorder",
+       y = "WBC count 1000 per microliter")
 ```
+
+```{r}
+cleandata %>%
+  select(symptom_1, symptom_2, symptom_3, symptom_4, symptom_5)# %>%
+ # summarise(mean (symptom_1, symptom_2, symptom_3, symptom_4, symptom_5))
+```
+
+```{r}
+cleandata %>%
+  filter(!is.na)
+  group_by(disorder_subclass) %>%
+  summarise(mean(symptom_1)) 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
