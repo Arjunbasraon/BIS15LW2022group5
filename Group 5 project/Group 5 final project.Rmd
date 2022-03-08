@@ -456,57 +456,6 @@ ggmap(map2) +
 
 
 
-```{r}
-library(albersusa)
-library(ggmap)
-```
-
-```{r}
-#Cleaning Location Column
-location_data_train_1 <- train_1 %>% 
-  mutate(New = str_extract(location_of_institute, "\\([^\\)]+"),
-               New = str_remove(New, "\\("),
-               location_of_institute = str_extract(location_of_institute,"^[^\\(]+"),
-               location_of_institute = New) %>%
-  separate(location_of_institute, into = c("loc_lat", "loc_long"), sep = ",")
-
-```
-
-```{r}
-#Only work around I found to work to turn lat/long character -> numeric. Piping into above chunk wouldn't work
-location_data_train_1$loc_lat = as.numeric(as.character(location_data_train_1$loc_lat))
-location_data_train_1$loc_long = as.numeric(as.character(location_data_train_1$loc_long))
-
-```
-
-```{r}
-#Finding bbox
-location_data_train_1 %>%
-  select(loc_lat, loc_long) %>%
-  summary()
-#making bbox
-latitude <- c(42.27, 42.37)
-longitude <- c(-71.17, -71.06)
-bbox2 <- make_bbox(longitude, latitude, f = 0.05)
-```
-
-```{r}
-#making map
-map2 <- get_map(bbox2, maptype = "terrain-lines", source = "stamen")
-ggmap(map2) +
-  geom_point(data = location_data_train_1,
-             aes(loc_long, loc_lat, color = birth_defects),
-             size=2.5)
-```
-```{r}
-location_data_train_1 %>%
-  filter((42.37 >= loc_lat | loc_lat >= 42.27) & (-71.06 >= loc_long | loc_long >= -71.17)) %>%
-  count(loc_lat, loc_long)
-  summarize()
-  
-  
-
-```
 
 
 
