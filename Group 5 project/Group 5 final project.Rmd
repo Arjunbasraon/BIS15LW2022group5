@@ -697,7 +697,7 @@ mean_sum
 mean_sum %>% 
   ggplot(aes(x = disorder_subclass, y = meansum , fill = disorder_subclass)) +
   geom_col(color = "black", alpha = 1, na.rm = TRUE) +
-  labs(title = "probability of having 5 main symptoms",
+  labs(title = "average recorded symptoms",
        x = "Disorder",
        y = "average number of symptoms recorded in patients") +
   theme(plot.title = element_text(size = rel(2), hjust = 0.5)) +
