@@ -668,28 +668,41 @@ train %>%
 ```
 
 ```{r}
-train %>%
+mean <- train %>%
   group_by(disorder_subclass) %>%
  na.omit()%>%
- summarise(mean(symptom_1), mean(symptom_2), mean(symptom_3), mean(symptom_4), mean(symptom_5))
+ summarise(mean1=mean(symptom_1), mean2=mean(symptom_2), mean3=mean(symptom_3), mean4=mean(symptom_4), mean5=mean(symptom_5))
+mean
 ```
+
 ```{r}
-getwd()
+meanwide <- mean %>%
+  pivot_wider(names_from = disorder_subclass, values_from = c(mean1, mean2, mean3, mean4, mean5))
+meanwide
 ```
 
+```{r}
+  mean %>% summarize(across(where(is.numeric), ~ sum(.x, na.rm = TRUE)))
+```
 
+```{r}
+mean_sum <- mean %>% 
+  group_by(disorder_subclass) %>%
+  mutate(meansum = sum(mean1, mean2, mean3, mean4, mean5)) %>%
+  arrange(meansum)
+mean_sum
+```
 
-
-
-
-
-
-
-
-
-
-
-
+```{r}
+mean_sum %>% 
+  ggplot(aes(x = disorder_subclass, y = meansum , fill = disorder_subclass)) +
+  geom_col(color = "black", alpha = 1, na.rm = TRUE) +
+  labs(title = "probability of having 5 main symptoms",
+       x = "Disorder",
+       y = "average number of symptoms recorded in patients") +
+  theme(plot.title = element_text(size = rel(2), hjust = 0.5)) +
+  coord_flip()
+```
 
 
 
