@@ -703,7 +703,17 @@ mean_sum %>%
   theme(plot.title = element_text(size = rel(2), hjust = 0.5)) +
   coord_flip()
 ```
-
+```{r}
+mean_sum %>% 
+  ggplot(aes(x=disorder_subclass,y=meansum,fill=meansum))+
+  geom_tile()+
+  scale_fill_gradient(low="white", high="magenta")+
+  theme(axis.text.x = element_text(angle = 20, hjust = 1, vjust = 1)) +
+  labs(title="heatmap of average recorded symptoms", x = "Disorder", y = "sum of mean")+
+  theme(axis.title = element_text(size=20),
+        axis.text = element_text(size=10),
+        plot.title = element_text(hjust = .5, size = 15))
+```
 
 
 
