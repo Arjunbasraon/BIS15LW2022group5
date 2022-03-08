@@ -2,7 +2,9 @@
 title: "Group 5 final project"
 author: "Arjun, Flynn, Ricardo, Brandon"
 date: "3/1/2022"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -26,6 +28,8 @@ library(reshape2)
 library(ggVennDiagram)
 library(ggwordcloud)
 library(ggthemes)
+library(albersusa)
+library(ggmap)
 ```
 ```{r,warning=F}
 train <- read_csv('../data/train.csv')
@@ -295,7 +299,63 @@ melt_cor %>%
 
 
 
+```{r}
+#Cleaning Location Column
+location_data_train_1 <- train_1 %>% 
+  mutate(New = str_extract(location_of_institute, "\\([^\\)]+"),
+               New = str_remove(New, "\\("),
+               location_of_institute = str_extract(location_of_institute,"^[^\\(]+"),
+               location_of_institute = New) %>%
+  separate(location_of_institute, into = c("loc_lat", "loc_long"), sep = ",")
 
+```
+
+```{r}
+#Only work around I found to work to turn lat/long character -> numeric. Piping into above chunk wouldn't work
+location_data_train_1$loc_lat = as.numeric(as.character(location_data_train_1$loc_lat))
+location_data_train_1$loc_long = as.numeric(as.character(location_data_train_1$loc_long))
+
+```
+
+```{r}
+#Finding bbox
+location_data_train_1 %>%
+  select(loc_lat, loc_long) %>%
+  summary()
+#making bbox
+latitude <- c(42.27, 42.37)
+longitude <- c(-71.17, -71.06)
+bbox2 <- make_bbox(longitude, latitude, f = 0.05)
+```
+
+
+
+```{r}
+#Finding Frequency
+location_map <- location_data_train_1 %>%
+  filter((42.37 >= loc_lat | loc_lat >= 42.27) & (-71.06 >= loc_long | loc_long >= -71.17)) %>%
+  group_by(loc_lat, loc_long, h_o_substance_abuse) %>%
+  summarize(dot_size = sum(h_o_substance_abuse == "Yes")) %>%
+  filter(h_o_substance_abuse == "Yes")
+location_map
+
+```
+
+```{r}
+#Making map
+map2 <- get_map(bbox2, maptype = "terrain-lines", source = "stamen")
+ggmap(map2) +
+  geom_point(data = location_map, mapping = aes(loc_long, loc_lat, size = dot_size), color  = "blue", alpha = 0.5) +
+  theme(axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1))+
+  labs(title = "Freq of Substance Abuse of Mother in Hospitals in Boston",
+       x = "Longitude",
+       y= "Latitude",
+       size = "Substance Abuse Frequency")
+  
+
+#Lines up with population data,
+#https://bostonography.com/wp-content/uploads/2012/01/density2.jpg
+```
 
 
 
@@ -742,7 +802,41 @@ mean_sum %>%
 
 
 
+```{r}
+train_1 %>%
+ggplot(aes(x=disorder_subclass, fill=gender)) + geom_bar(position="dodge") +
+theme(axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1)) +
+labs(title = "Disorder Observations by Gender",
+     x = "Disorder Type",
+     y = "Number of Observation")
+```
 
+```{r}
+train_1 %>%
+ggplot(aes(x=disorder_subclass, fill=history_of_anomalies_in_previous_pregnancies)) + geom_bar(position="dodge") +
+theme(axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1)) +
+labs(title = "Disorder Frequency by History Of Pregnancy Complications",
+     x = "Disorder Type",
+     y = "Number of Observation")
+```
+
+```{r}
+train_1 %>%
+ggplot(aes(x=disorder_subclass, fill=h_o_serious_maternal_illness)) + geom_bar(position="dodge") +
+theme(axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1)) +
+labs(title = "Disorder Frequency by Maternal Illness",
+     x = "Disorder Type",
+     y = "Number of Observation")
+```
+
+```{r}
+train_1 %>%
+ggplot(aes(x=disorder_subclass, fill=h_o_substance_abuse)) + geom_bar(position="dodge") +
+theme(axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1)) +
+labs(title = "Disorder Frequency by Substance Abuse",
+     x = "Disorder Type",
+     y = "Number of Observation")
+```
 
 
 
